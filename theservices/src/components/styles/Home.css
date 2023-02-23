@@ -9,12 +9,12 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     /* flex-direction: column; */
-    background: #fff;
+    /* background: #fff; */
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 4px;
     padding: 2%;
     gap: 1%;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     margin-top: 2%;
     margin-bottom: 2%;
 }
@@ -34,21 +34,65 @@
     cursor: pointer;
     -ms-transform: scale(1.2);
     -webkit-transform: scale(1.2);
-    transform: scale(1.2);
-    background-color: white;
+    transform: scale(0.8);
+    /* background-color: white; */
     /* border: 1px solid black; */
 }
 
-@media screen and (min-width: 580px) {
+.appliances_category{
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin: auto;
+    margin-top: 1%;
+    margin-bottom: 2%;
+    gap: 2%;
+    
+
+}
+.appliances_category:hover{
+    
+}
+.app_cat_card{
+    transition: transform .5s;
+}
+.app_cat_card:hover{
+    cursor: pointer;
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(0.9);
+    background-color: white;
+}
+@media only screen and (min-width: 880px) {
     .homeCategory{
         display: grid;
         grid-template-columns: repeat(4,  1fr);
     }
+
   }
 
-@media screen and (min-width: 480px) {
-    #homeCategory{
+  @media only screen and (max-width: 680px) {
+    .homeCategory{
         display: grid;
-        grid-template-columns: repeat(2,  1fr);
+        grid-template-columns: repeat(1,  1fr);
     }
   }
+
+
+@media only screen and (max-width: 480px) {
+    .homeCategory{
+        display: grid;
+        grid-template-columns: repeat(1,  1fr);
+    }
+    .appliances_category{
+        display: grid;
+        grid-template-columns: repeat(1,  1fr);
+    }
+  }
+
+/* @media only screen and (max-width: 380px) {
+    #homeCategory{
+        display: grid;
+        grid-template-columns: repeat(1,  1fr);
+    }
+  } */

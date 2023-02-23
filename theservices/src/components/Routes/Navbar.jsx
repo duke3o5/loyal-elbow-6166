@@ -19,6 +19,8 @@ import {
     Center,
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 const NavLink = ({ children }) => (
     <Link
@@ -37,38 +39,49 @@ const NavLink = ({ children }) => (
 export default function Navbar() {
     const { colorMode, toggleColorMode } = useColorMode();
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const { loginWithRedirect, logout } = useAuth0();
+    const { user, isAuthenticated, isLoading } = useAuth0();
+
+
     return (
         <>
             <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
                 <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
                     {/* <Box>Logo</Box> */}
                     <img
-                    id='logo'
-                    src={'https://www.linkpicture.com/q/InShot_20230221_192504271.png'}
-                    alt='Logo image here'
+                        id='logo'
+                        src={'https://www.linkpicture.com/q/InShot_20230221_192504271.png'}
+                        alt='Logo image here'
                     />
-                
-                <Menu>
-                    <MenuButton>
-                    <Link to='/Blog' className="navHeading">
-                            <Text fontSize='xl'>Blog</Text>
-                        </Link> 
-                    </MenuButton>
-                </Menu>
-                <Menu>
-                    <MenuButton>
-                    <Link to='/About' className="navHeading">
-                            <Text fontSize='xl'>About Us</Text>
-                        </Link> 
-                    </MenuButton>
-                </Menu>
-                <Menu>
-                    <MenuButton>
-                    <Link to='/Help' className="navHeading">
-                            <Text fontSize='xl'>Help</Text>
-                        </Link> 
-                    </MenuButton>
-                </Menu>
+
+                    <Menu>
+                        <MenuButton>
+                            <Link to='/Blog' className="navHeading">
+                                <Text fontSize='xl'>Blog</Text>
+                            </Link>
+                        </MenuButton>
+                    </Menu>
+                    <Menu>
+                        <MenuButton>
+                            <Link to='/About' className="navHeading">
+                                <Text fontSize='xl'>About Us</Text>
+                            </Link>
+                        </MenuButton>
+                    </Menu>
+                    <Menu>
+                        <MenuButton>
+                            <Link to='/Help' className="navHeading">
+                                <Text fontSize='xl'>Help</Text>
+                            </Link>
+                        </MenuButton>
+                    </Menu>
+                    {/* <Menu>
+                        <MenuButton>
+                            <Center>
+                                {isAuthenticated && <p>Welcome back {user.name} !</p>}
+                            </Center>
+                        </MenuButton>
+                    </Menu> */}
                     {/* <Flex>
                         <Link to='/Blog' className="navHeading">
                             <h5>Blog</h5>
@@ -94,28 +107,40 @@ export default function Navbar() {
                                     variant={'link'}
                                     cursor={'pointer'}
                                     minW={0}>
-                                    <Avatar
+                                    {!isAuthenticated ? <Avatar
                                         size={'sm'}
                                         src={'https://avatars.dicebear.com/api/male/username.svg'}
-                                    />
+                                    /> : <Avatar
+                                        size={'sm'}
+                                        src={'https://www.linkpicture.com/q/IMG_20230127_172343.jpg'}
+                                    />}
                                 </MenuButton>
                                 <MenuList alignItems={'center'}>
                                     <br />
                                     <Center>
-                                        <Avatar
-                                            size={'2xl'}
-                                            src={'https://avatars.dicebear.com/api/male/username.svg'}
-                                        />
+                                        {!isAuthenticated ? <Avatar
+                                        size={'2xs'}
+                                        src={'https://avatars.dicebear.com/api/male/username.svg'}
+                                    /> : <Avatar
+                                        size={'2xl'}
+                                        src={'https://www.linkpicture.com/q/IMG_20230127_172343.jpg'}
+                                    />}
                                     </Center>
                                     <br />
                                     <Center>
-                                        <p>Username</p>
+                                        <Text fontSize={'2xl'}>{isAuthenticated && <p>{user.name}</p>}</Text>
                                     </Center>
                                     <br />
                                     <MenuDivider />
                                     <MenuItem>Your Servers</MenuItem>
                                     <MenuItem>Account Settings</MenuItem>
-                                    <MenuItem>Logout</MenuItem>
+                                    <Button>
+                                    {
+                                        isAuthenticated ? <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+                                            Log Out
+                                        </button> : <button onClick={() => loginWithRedirect()}>Log In</button>
+                                    }
+                                    </Button>
                                 </MenuList>
                             </Menu>
                         </Stack>

@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
-export default class Responsive extends Component {
-  render() {
+export default function Responsive({images}){
+  
     var settings = {
       dots: true,
       infinite: false,
@@ -38,35 +40,18 @@ export default class Responsive extends Component {
       ]
     };
     return (
-      <div>
-        <h2> Responsive </h2>
+      <div style={{color:'black', borderRadius:'5px'}}>
         <Slider {...settings}>
           <div>
-            <h3>1</h3>
+            <img src={images[0]}/>
           </div>
           <div>
-            <h3>2</h3>
+          <img src={images[1]}/>
           </div>
           <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div>
-          <div>
-            <h3>7</h3>
-          </div>
-          <div>
-            <h3>8</h3>
+          <img src={images[2]}/>
           </div>
         </Slider>
       </div>
     );
   }
-}

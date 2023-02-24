@@ -20,6 +20,7 @@ import {
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { useAuth0 } from "@auth0/auth0-react";
+import { useNavigate } from 'react-router-dom';
 
 
 const NavLink = ({ children }) => (
@@ -41,7 +42,13 @@ export default function Navbar() {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const { loginWithRedirect, logout } = useAuth0();
     const { user, isAuthenticated, isLoading } = useAuth0();
+    const navigate = useNavigate();
 
+    const handlePage=(value)=>{
+
+        navigate(`${value}`)
+
+    }
 
     return (
         <>
@@ -52,6 +59,7 @@ export default function Navbar() {
                         id='logo'
                         src={'https://www.linkpicture.com/q/InShot_20230221_192504271.png'}
                         alt='Logo image here'
+                        onClick={()=>handlePage('/')}
                     />
 
                     <Menu>

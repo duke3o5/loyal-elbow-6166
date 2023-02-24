@@ -74,7 +74,7 @@ export default function Home() {
                     <h2>Hair, Skin & Nails</h2>
 
                 </div>
-                <div className='homeCategory-innerDiv'>
+                <div className='homeCategory-innerDiv' as='a' href='/WomenTherapies' onClick={(e)=>handlePage("WomenTherapies")}>
                     <Avatar size={'sm'} src='https://cdn-icons-png.flaticon.com/512/8686/8686107.png' />
                     <h2>Women's Therapies</h2>
 

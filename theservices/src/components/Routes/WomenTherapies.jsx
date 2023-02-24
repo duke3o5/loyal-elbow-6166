@@ -1,4 +1,4 @@
-import { Heading, Text, Image, Button, Select } from "@chakra-ui/react";
+import { Heading, Text, Image, Button, Input, Select } from "@chakra-ui/react";
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import '../styles/SalonforWomen.css';
@@ -6,8 +6,7 @@ import '../styles/SalonforWomen.css';
 import Responsive from "../Slider";
 import { Link } from "react-router-dom";
 
-
-export default function Women() {
+export default function WomenTherapies () {
     const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
     const [sort, setSort] = useState('price');
@@ -43,6 +42,7 @@ export default function Women() {
                     <option value={'desc'}>High to Low</option>
                 </Select>
             </div>
+
             {data && data.map((el) => (
                 <div className="box" key={el.id}>
                     <div className="mainDiv">
@@ -55,7 +55,7 @@ export default function Women() {
 
                             <Text fontSize={'2xl'}>{'Price' + ' : ' + el.price + ' Rs.'}</Text>
 
-                            <Link to={`/SalonforWomen/${el.id}`}>
+                            <Link to={`/WomenTherapies/${el.id}`}>
                                 <button className="bookNowButton">Book this Service</button>
                             </Link>
 
@@ -74,7 +74,7 @@ export default function Women() {
 
 
             ))}
-             <div>
+            <div>
                 <button disabled={page == 1} onClick={() => setPage(page - 1)} className="bookNowButton">Previous</button>
                 <Button fontSize={'3xl'}>{page}</Button>
                 <button onClick={() => setPage(page + 1)} className="bookNowButton" disabled={data.length == page}>Next</button>
@@ -82,3 +82,4 @@ export default function Women() {
         </>
     )
 }
+

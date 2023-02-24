@@ -1,0 +1,8 @@
+.mainDiv{
+    display: 'flex';
+    justify-content: space-around;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 15px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}

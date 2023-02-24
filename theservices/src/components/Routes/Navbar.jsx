@@ -119,7 +119,7 @@ export default function Navbar() {
                                     <br />
                                     <Center>
                                         {!isAuthenticated ? <Avatar
-                                        size={'2xs'}
+                                        size={'2xl'}
                                         src={'https://avatars.dicebear.com/api/male/username.svg'}
                                     /> : <Avatar
                                         size={'2xl'}
@@ -150,81 +150,3 @@ export default function Navbar() {
         </>
     );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { Link } from "react-router-dom";
-// import '../styles/Navbar.css';
-
-// export default function Navbar() {
-
-//     return (
-//         <>
-//             <div id="navbarDiv">
-//                 <div id="navLeft">
-//                     <Link to='/' className="navHeading">
-//                         <img id="logo" src="https://www.linkpicture.com/q/InShot_20230221_192504271.png" />
-//                     </Link>
-//                 </div>
-//                 <div id="navRight">
-//                     <Link to='/Blog' className="navHeading">
-//                         <h5>Blog</h5>
-//                     </Link>
-//                     <Link to='/Register' className="navHeading">
-//                         <h5>Resgister As A Professional</h5>
-//                     </Link>
-//                     <Link to='/Help' className="navHeading">
-//                         <h5>Help</h5>
-//                     </Link>
-//                     <Link to='/Login' className="navHeading">
-//                         <h5>Login/Sign Up</h5>
-//                     </Link>
-//                 </div>
-//             </div>
-//         </>
-//     )
-// }

@@ -37,7 +37,7 @@ export default function WomenTherapies () {
                     <option value={'price'}>Price</option>
                     <option value={'distance'}>Distance</option>
                 </Select>
-                <Select width={'30%'} border={'1px solid black'} onClick={(e)=>handleRange(e.target.value)}>
+                <Select width={'20%'} border={'1px solid black'} onClick={(e)=>handleRange(e.target.value)}>
                     <option value={'asc'}>Low to High</option>
                     <option value={'desc'}>High to Low</option>
                 </Select>
@@ -56,7 +56,7 @@ export default function WomenTherapies () {
                             <Text fontSize={'2xl'}>{'Price' + ' : ' + el.price + ' Rs.'}</Text>
 
                             <Link to={`/WomenTherapies/${el.id}`}>
-                                <button className="bookNowButton">Book this Service</button>
+                                <Button className="bookNowButton">Book this Service</Button>
                             </Link>
 
 
@@ -75,9 +75,9 @@ export default function WomenTherapies () {
 
             ))}
             <div>
-                <button disabled={page == 1} onClick={() => setPage(page - 1)} className="bookNowButton">Previous</button>
+                <Button disabled={page == 1} onClick={() => setPage(page - 1)} className="bookNowButton">Previous</Button>
                 <Button fontSize={'3xl'}>{page}</Button>
-                <button onClick={() => setPage(page + 1)} className="bookNowButton" disabled={data.length == page}>Next</button>
+                <Button onClick={() => setPage(page + 1)} className="bookNowButton" disabled={data.length == page}>Next</Button>
             </div>
         </>
     )

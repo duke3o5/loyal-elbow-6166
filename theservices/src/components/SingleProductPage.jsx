@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Heading } from '@chakra-ui/react';
-import { Text, Image } from '@chakra-ui/react';
+import { Text, Image, Button } from '@chakra-ui/react';
 import './styles/SalonforWomen.css';
 import Responsive from './Slider';
 
@@ -11,6 +11,13 @@ import Responsive from './Slider';
 export const SingleProductPage = () => {
     const [el, setData] = useState({});
     const {id} = useParams();
+    const navigate = useNavigate();
+
+    const handlePage=(value)=>{
+        // setPage(true);
+
+        navigate(`${value}`)
+    }
 
 console.log(id)
     const getData = () => {
@@ -35,7 +42,7 @@ console.log(id)
                             <Text fontSize={'2xl'}>{'Price' + ' : ' + el.price + ' Rs.'}</Text>
 
                             
-                                <button className="bookNowButton">Book this Service</button>
+                                <Button className="bookNowButton" onClick={(e)=>handlePage('/Checkout')}>Book this Service</Button>
                             
 
 

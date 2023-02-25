@@ -60,6 +60,7 @@ export default function Navbar() {
                         src={'https://www.linkpicture.com/q/InShot_20230221_192504271.png'}
                         alt='Logo image here'
                         onClick={()=>handlePage('/')}
+                        style={{cursor: 'pointer'}}
                     />
 
                     <Menu>

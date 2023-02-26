@@ -2,6 +2,7 @@ import { Route,Routes } from "react-router-dom";
 import Checkout from "./Routes/Checkout";
 import Footer from "./Routes/Footer";
 import Home from "./Routes/Home";
+import { LastPage } from "./Routes/LastPage";
 import Navbar from "./Routes/Navbar";
 import Payment from "./Routes/Payment";
 import Women from "./Routes/SalonforWomen";
@@ -24,6 +25,7 @@ export default function AllRoutes(){
             <Route path="/WomenTherapies/:id" element={<SingleProductPage/>}/>
             <Route path="/Checkout" element={<Checkout/>}/>
             <Route path="/Payment" element={<Payment/>}/>
+            <Route path="/LastPage" element={<LastPage/>}/>
         </Routes>
         </>
     )
